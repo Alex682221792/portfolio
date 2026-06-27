@@ -15,6 +15,7 @@ const sideProjects = [
       'Human-AI conversation integration',
       'Demonstrates innovative AI automation patterns',
     ],
+    link: 'https://github.com/Alex682221792/organizer-ai',
     color: 'from-violet-600 to-pink-600',
   },
 ]
@@ -94,6 +95,17 @@ export default function SideProjects() {
                         ))}
                       </ul>
                     </div>
+
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors font-semibold"
+                      >
+                        View on GitHub →
+                      </a>
+                    )}
                   </div>
 
                   <div>

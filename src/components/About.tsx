@@ -34,7 +34,7 @@ export default function About() {
               Beyond code, I'm passionate about architecture decisions, mentoring teams, and collaborating across product and design to deliver features that matter. I actively leverage AI tools to accelerate development while maintaining code quality and architectural integrity.
             </p>
             <p>
-              Currently, I'm building <span className="text-accent font-semibold">NuBrain</span> (a financial platform) and <span className="text-accent font-semibold">Muvin</span> (a transportation solution for Ecuador).
+              Currently, I'm building <span className="text-accent font-semibold">NuBrain</span> (AI-powered e-invoicing platform for Ecuador in production) and <span className="text-accent font-semibold">Muvin</span> (a transportation solution for Ecuador in progress).
             </p>
           </motion.div>
 
@@ -73,14 +73,14 @@ export default function About() {
 
             <div className="card-blur p-6 rounded-xl">
               <h3 className="text-xl font-semibold text-white mb-4">By the Numbers</h3>
-              <div className="grid grid-cols-2 gap-4 text-center">
+              <div className="grid grid-cols-2 gap-4 text-center mb-6">
                 <div>
                   <p className="text-2xl font-bold text-accent">9+</p>
                   <p className="text-gray-400 text-sm">Years Experience</p>
                 </div>
                 <div>
-                  <p className="text-2xl font-bold text-accent">5+</p>
-                  <p className="text-gray-400 text-sm">Countries</p>
+                  <p className="text-2xl font-bold text-accent">15+</p>
+                  <p className="text-gray-400 text-sm">Technologies</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">30%</p>
@@ -91,6 +91,13 @@ export default function About() {
                   <p className="text-gray-400 text-sm">Automation Gains</p>
                 </div>
               </div>
+              <a
+                href="/Alexander Núñez - CV - May2026.pdf"
+                download
+                className="block w-full text-center px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg font-semibold transition-colors"
+              >
+                📄 Download CV
+              </a>
             </div>
           </motion.div>
         </div>
