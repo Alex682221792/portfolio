@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { Mail, MessageSquare } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function Contact() {
+  const { t } = useLanguage()
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-dark">
       <div className="max-w-4xl mx-auto">
@@ -13,13 +15,11 @@ export default function Contact() {
           className="text-center mb-12"
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Let's Work Together</span>
+            <span className="gradient-text">{t.contact.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mx-auto mb-6"></div>
           <p className="text-gray-400 text-lg">
-            I'm always open to interesting projects and collaborations.
-            <br />
-            Feel free to reach out!
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -39,7 +39,7 @@ export default function Contact() {
                 <Mail className="text-white" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white mb-1">Email</h3>
+                <h3 className="text-xl font-semibold text-white mb-1">{t.contact.email}</h3>
                 <p className="text-accent hover:text-white transition-colors">alex.nb.92@gmail.com</p>
               </div>
             </div>
@@ -56,7 +56,7 @@ export default function Contact() {
                 <span className="text-white text-lg font-bold">in</span>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white mb-1">LinkedIn</h3>
+                <h3 className="text-xl font-semibold text-white mb-1">{t.contact.linkedin}</h3>
                 <p className="text-accent hover:text-white transition-colors">wilson-alexander-nunez-barrera</p>
               </div>
             </div>
@@ -73,8 +73,8 @@ export default function Contact() {
                 <MessageSquare className="text-white" size={24} />
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white mb-1">WhatsApp</h3>
-                <p className="text-accent hover:text-white transition-colors">Chat on WhatsApp</p>
+                <h3 className="text-xl font-semibold text-white mb-1">{t.contact.whatsapp}</h3>
+                <p className="text-accent hover:text-white transition-colors">{t.contact.chat}</p>
               </div>
             </div>
           </a>
@@ -90,8 +90,8 @@ export default function Contact() {
                 <span className="text-white text-lg font-bold">𝌡</span>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-white mb-1">GitHub</h3>
-                <p className="text-accent hover:text-white transition-colors">View my repositories</p>
+                <h3 className="text-xl font-semibold text-white mb-1">{t.contact.github}</h3>
+                <p className="text-accent hover:text-white transition-colors">{t.contact.viewRepo}</p>
               </div>
             </div>
           </a>
@@ -105,7 +105,7 @@ export default function Contact() {
           className="card-blur p-12 rounded-xl text-center"
         >
           <p className="text-gray-300 mb-6">
-            Based in <span className="text-accent font-semibold">Ecuador</span> • Available for <span className="text-accent font-semibold">remote</span> work
+            {t.contact.availability}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
@@ -114,13 +114,13 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="px-8 py-3 bg-gradient-primary text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-semibold text-center"
             >
-              Chat on WhatsApp
+              {t.contact.chat}
             </a>
             <a
               href="mailto:alex.nb.92@gmail.com"
               className="px-8 py-3 border border-purple-500/30 rounded-lg hover:border-purple-500/60 text-white transition-all font-semibold text-center"
             >
-              Send an Email
+              {t.contact.sendEmail}
             </a>
           </div>
         </motion.div>

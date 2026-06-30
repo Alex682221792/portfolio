@@ -1,55 +1,61 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
+import { useLanguage } from '../context/LanguageContext'
 
-const projects = [
+const buildProjectsData = (t: any) => [
   {
-    title: 'NuBrain',
-    subtitle: 'AI-Powered Electronic Invoicing & Business Automation',
-    description: 'A comprehensive platform combining electronic invoicing (SRI-compliant) with AI-driven business automation. Includes WhatsApp Business chatbots with RAG-based knowledge bases powered by Claude integration for intelligent customer support, document processing, and invoice management.',
-    status: 'In Production',
+    title: t.projects.nubrain,
+    subtitle: t.projects.nubrainSub,
+    description: t.projects.nubrainDesc,
+    status: t.projects.inProduction,
     technologies: ['Flutter', 'NestJS', 'TypeScript', 'PostgreSQL', 'Firebase', 'Claude API', 'WhatsApp Business', 'RAG', 'XML Signing'],
     highlights: [
-      'SRI integration with digital XML signing & authorization',
-      'AI chatbots on WhatsApp Business with RAG knowledge base',
-      'Claude integration for intelligent document processing',
-      'Automated invoice generation with AI validation',
-      'PDF RIDE generation and smart email delivery',
-      'Multi-tenant architecture with Firebase authentication',
+      t.projects.nubrainH1,
+      t.projects.nubrainH2,
+      t.projects.nubrainH3,
+      t.projects.nubrainH4,
+      t.projects.nubrainH5,
+      t.projects.nubrainH6,
     ],
     link: 'https://nubrain.app',
     color: 'from-blue-600 to-purple-600',
   },
   {
-    title: 'Muvin',
-    subtitle: 'Transit Payment Platform',
-    description: 'A comprehensive solution for Ecuador\'s public transportation system. Enables seamless digital payments for bus rides with real-time location tracking, cooperative management dashboards, and passenger rewards.',
-    status: 'In Progress',
+    title: t.projects.muvin,
+    subtitle: t.projects.muvinSub,
+    description: t.projects.muvinDesc,
+    status: t.projects.inProgress,
     technologies: ['Flutter', 'Node.js', 'PostgreSQL', 'Google Maps API', 'Real-time Geolocation'],
     highlights: [
-      'Real-time location tracking for buses',
-      'QR-based payment validation',
-      'Cooperative dashboard & reporting',
-      'Dynamic pricing & rewards system',
+      t.projects.muvinH1,
+      t.projects.muvinH2,
+      t.projects.muvinH3,
+      t.projects.muvinH4,
     ],
     color: 'from-indigo-600 to-cyan-600',
   },
   {
-    title: 'Taxi Ordering System',
-    subtitle: 'Real-time Transportation',
-    description: 'Full-stack taxi ordering application with real-time driver tracking, dynamic pricing, and Firebase-powered messaging. Used by thousands of passengers across Ecuador.',
-    status: 'Deployed',
+    title: t.projects.taxi,
+    subtitle: t.projects.taxiSub,
+    description: t.projects.taxiDesc,
+    status: t.projects.deployed,
     technologies: ['Kotlin', 'Swift', 'Firebase', 'Google Maps', 'Coroutines'],
     highlights: [
-      'Real-time location tracking',
-      'Push notifications (FCM)',
-      'Firebase authentication',
-      'Responsive UI under poor connectivity',
+      t.projects.taxiH1,
+      t.projects.taxiH2,
+      t.projects.taxiH3,
+      t.projects.taxiH4,
     ],
     color: 'from-orange-600 to-red-600',
   },
 ]
 
 export default function Projects() {
+  const { t } = useLanguage()
+
+  const projectsData = buildProjectsData(t)
+  const projects = t.projects
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -79,7 +85,7 @@ export default function Projects() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Featured Projects</span>
+            <span className="gradient-text">{projects.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
@@ -91,7 +97,7 @@ export default function Projects() {
           viewport={{ once: true }}
           className="space-y-8"
         >
-          {projects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
@@ -106,9 +112,9 @@ export default function Projects() {
                         <p className="text-accent text-sm font-semibold">{project.subtitle}</p>
                       </div>
                       <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        project.status === 'In Production'
+                        project.status === projects.inProduction
                           ? 'bg-green-500/20 text-green-400'
-                          : project.status === 'In Progress'
+                          : project.status === projects.inProgress
                           ? 'bg-yellow-500/20 text-yellow-400'
                           : 'bg-blue-500/20 text-blue-400'
                       }`}>
@@ -119,7 +125,7 @@ export default function Projects() {
                     <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">Highlights</h4>
+                      <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">{projects.highlights}</h4>
                       <ul className="space-y-2">
                         {project.highlights.map((highlight, i) => (
                           <li key={i} className="text-gray-300 flex items-start gap-2">
@@ -148,7 +154,7 @@ export default function Projects() {
                   <div>
                     <div className={`bg-gradient-to-br ${project.color} rounded-lg p-8 h-full min-h-[300px] flex flex-col justify-between`}>
                       <div>
-                        <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Tech Stack</h4>
+                        <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">{projects.techStack}</h4>
                         <div className="space-y-2">
                           {project.technologies.map((tech, i) => (
                             <div key={i} className="bg-white/20 rounded px-3 py-2 text-white text-sm font-medium">

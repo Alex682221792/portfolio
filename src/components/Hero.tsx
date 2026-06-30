@@ -1,11 +1,14 @@
 import { ArrowRight } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 interface HeroProps {
   setActiveSection: (section: string) => void
 }
 
 export default function Hero({ setActiveSection }: HeroProps) {
+  const { t } = useLanguage()
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16">
       {/* Background gradient orbs */}
@@ -27,9 +30,7 @@ export default function Hero({ setActiveSection }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-5xl sm:text-7xl font-bold mb-6"
           >
-            <span className="gradient-text">Senior Mobile</span>
-            <br />
-            <span className="gradient-text">& Backend Engineer</span>
+            <span className="gradient-text">{t.hero.title}</span>
           </motion.h1>
 
           <motion.p
@@ -38,9 +39,7 @@ export default function Hero({ setActiveSection }: HeroProps) {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
           >
-            9+ years building scalable systems across fintech, transportation, and real-time platforms.
-            <br />
-            Specialized in Flutter, Swift, Kotlin, and backend integrations.
+            {t.hero.subtitle}
           </motion.p>
 
           <motion.div
@@ -54,7 +53,7 @@ export default function Hero({ setActiveSection }: HeroProps) {
               onClick={() => setActiveSection('projects')}
               className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-primary text-white rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all font-semibold group"
             >
-              View My Work
+              {t.hero.viewWork}
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <a
@@ -62,7 +61,7 @@ export default function Hero({ setActiveSection }: HeroProps) {
               onClick={() => setActiveSection('contact')}
               className="inline-flex items-center gap-2 px-8 py-4 border border-purple-500/30 rounded-lg hover:border-purple-500/60 text-white transition-all font-semibold"
             >
-              Get in Touch
+              {t.hero.getInTouch}
             </a>
           </motion.div>
 

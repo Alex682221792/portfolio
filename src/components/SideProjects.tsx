@@ -1,19 +1,20 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
-const sideProjects = [
+const buildSideProjectsData = (t: any) => [
   {
-    title: 'Organizer',
-    subtitle: 'AI-Powered Task Automation Dashboard',
-    description: 'A macOS Flutter app functioning as a Kanban dashboard powered by Claude AI agents. Automates task execution via scheduled tasks, manages task conversations, and stores all data file-based without a database. Demonstrates innovative patterns for human-AI collaboration.',
-    status: 'In Development',
+    title: t.sideProjects.organizer,
+    subtitle: t.sideProjects.organizerSub,
+    description: t.sideProjects.organizerDesc,
+    status: t.sideProjects.inDevelopment,
     technologies: ['Flutter', 'macOS', 'BLoC', 'Claude AI', 'Scheduled Tasks', 'File System Architecture'],
     highlights: [
-      'Advanced BLoC pattern with dependency injection (get_it)',
-      'Claude AI agents for automated task execution',
-      'File-based task management (no database)',
-      'Multi-status Kanban workflow (7 statuses)',
-      'Human-AI conversation integration',
-      'Demonstrates innovative AI automation patterns',
+      t.sideProjects.organizerH1,
+      t.sideProjects.organizerH2,
+      t.sideProjects.organizerH3,
+      t.sideProjects.organizerH4,
+      t.sideProjects.organizerH5,
+      t.sideProjects.organizerH6,
     ],
     link: 'https://github.com/Alex682221792/organizer-ai',
     color: 'from-violet-600 to-pink-600',
@@ -21,6 +22,10 @@ const sideProjects = [
 ]
 
 export default function SideProjects() {
+  const { t } = useLanguage()
+
+  const sideProjects = buildSideProjectsData(t)
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -50,9 +55,9 @@ export default function SideProjects() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Side Projects</span>
+            <span className="gradient-text">{t.sideProjects.title}</span>
           </h2>
-          <p className="text-gray-400 mb-2">Experimental work & learning initiatives</p>
+          <p className="text-gray-400 mb-2">{t.sideProjects.subtitle}</p>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
 
@@ -85,7 +90,7 @@ export default function SideProjects() {
                     <p className="text-gray-300 mb-6 leading-relaxed">{project.description}</p>
 
                     <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">Key Features</h4>
+                      <h4 className="text-sm font-semibold text-gray-400 mb-3 uppercase tracking-wider">{t.sideProjects.keyFeatures}</h4>
                       <ul className="space-y-2">
                         {project.highlights.map((highlight, i) => (
                           <li key={i} className="text-gray-300 flex items-start gap-2">
@@ -103,7 +108,7 @@ export default function SideProjects() {
                         rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-accent hover:text-white transition-colors font-semibold"
                       >
-                        View on GitHub →
+                        {t.sideProjects.viewGitHub}
                       </a>
                     )}
                   </div>
@@ -111,7 +116,7 @@ export default function SideProjects() {
                   <div>
                     <div className={`bg-gradient-to-br ${project.color} rounded-lg p-8 h-full min-h-[300px] flex flex-col justify-between`}>
                       <div>
-                        <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Tech Stack</h4>
+                        <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">{t.projects.techStack}</h4>
                         <div className="space-y-2">
                           {project.technologies.map((tech, i) => (
                             <div key={i} className="bg-white/20 rounded px-3 py-2 text-white text-sm font-medium">
@@ -139,7 +144,7 @@ export default function SideProjects() {
           className="mt-12 card-blur p-8 rounded-xl border border-purple-500/20"
         >
           <p className="text-gray-300 text-center">
-            Side projects are my playground for exploring new technologies, AI integration patterns, and innovative architectural approaches. These projects drive continuous learning and often inform the design of production systems.
+            {t.sideProjects.closing}
           </p>
         </motion.div>
       </div>

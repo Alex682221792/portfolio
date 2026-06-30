@@ -1,64 +1,69 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
-const experiences = [
+const buildExperiencesData = (t: any) => [
   {
-    company: 'Novacom',
-    location: 'Costa Rica',
-    position: 'Senior Mobile Developer',
-    period: 'March 2023 – Present',
+    company: t.experience.novacom,
+    location: t.experience.costaRica,
+    position: t.experience.seniorMobile,
+    period: t.experience.novacomPeriod,
     highlights: [
-      'Led iOS development in Android-first environment',
-      'Improved app performance reducing load times by 30%',
-      'Reduced crashes through memory & threading optimization',
-      'Built backend automation workflows reducing manual effort by 85%',
-      'Developed Flutter integrations for cross-platform applications',
+      t.experience.novacomH1,
+      t.experience.novacomH2,
+      t.experience.novacomH3,
+      t.experience.novacomH4,
+      t.experience.novacomH5,
     ],
     technologies: ['Swift', 'Kotlin', 'Flutter', 'ASP.NET', 'Python', 'Jenkins'],
   },
   {
-    company: 'Fisa Group',
-    location: 'Quito, Ecuador',
-    position: 'Software Development Consultant',
-    period: 'March 2021 – February 2023',
+    company: t.experience.fisa,
+    location: t.experience.quito,
+    position: t.experience.consultant,
+    period: t.experience.fisaPeriod,
     highlights: [
-      'Built mobile banking application from scratch',
-      'Collaborated with product and design teams on UX/workflows',
-      'Improved user experience of existing applications',
-      'Owned iOS and Android platform architecture decisions',
-      'Integrated with backend services using TypeScript/Node.js',
+      t.experience.fisaH1,
+      t.experience.fisaH2,
+      t.experience.fisaH3,
+      t.experience.fisaH4,
+      t.experience.fisaH5,
     ],
     technologies: ['Kotlin', 'Swift', 'Appcelerator', 'Node.js', 'Firebase'],
   },
   {
-    company: 'Advance Latam',
-    location: 'Quito, Ecuador',
-    position: 'Software Developer',
-    period: 'June 2019 – March 2021',
+    company: t.experience.advance,
+    location: t.experience.quito,
+    position: t.experience.developer,
+    period: t.experience.advancePeriod,
     highlights: [
-      'Developed taxi ordering and mobile banking applications',
-      'Implemented real-time data synchronization using Firebase',
-      'Built real-time location tracking with Google Maps API',
-      'Worked with background processes for location updates',
-      'Implemented Firebase authentication and push notifications',
+      t.experience.advanceH1,
+      t.experience.advanceH2,
+      t.experience.advanceH3,
+      t.experience.advanceH4,
+      t.experience.advanceH5,
     ],
     technologies: ['Kotlin', 'Swift', 'Firebase', 'Google Maps API', 'Coroutines'],
   },
   {
-    company: 'Kruger Corporation',
-    location: 'Quito, Ecuador',
-    position: 'Software Developer',
-    period: 'June 2018 – March 2019',
+    company: t.experience.kruger,
+    location: t.experience.quito,
+    position: t.experience.developer,
+    period: t.experience.krugerPeriod,
     highlights: [
-      'Developed Java applications with Spring and Hibernate',
-      'Built Angular frontends for web applications',
-      'Optimized database migrations with Pentaho',
-      'Handled complex data operations in DB2',
+      t.experience.krugerH1,
+      t.experience.krugerH2,
+      t.experience.krugerH3,
+      t.experience.krugerH4,
     ],
     technologies: ['Java', 'Spring', 'Hibernate', 'Angular', 'DB2'],
   },
 ]
 
 export default function Experience() {
+  const { t } = useLanguage()
+
+  const experiences = buildExperiencesData(t)
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -88,7 +93,7 @@ export default function Experience() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Experience</span>
+            <span className="gradient-text">{t.experience.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>

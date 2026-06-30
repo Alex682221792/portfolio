@@ -1,33 +1,36 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
-const skillCategories = [
+const buildSkillsData = (t: any) => [
   {
-    category: 'Mobile Development',
-    skills: ['Flutter', 'Swift', 'SwiftUI', 'Kotlin', 'Objective-C', 'React Native'],
+    category: t.skills.mobile,
+    skills: t.skills.mobileSkills,
   },
   {
-    category: 'Architecture & Patterns',
-    skills: ['MVVM', 'MVC', 'VIPER', 'Offline-first', 'Microservices', 'KMP'],
+    category: t.skills.architecture,
+    skills: t.skills.archSkills,
   },
   {
-    category: 'Backend & APIs',
-    skills: ['Node.js', 'TypeScript', 'Java', 'Spring Boot', 'REST APIs', 'GraphQL', 'ASP.NET'],
+    category: t.skills.backend,
+    skills: t.skills.backendSkills,
   },
   {
-    category: 'Cloud & DevOps',
-    skills: ['Firebase', 'AWS', 'Git', 'CI/CD', 'Jenkins', 'Performance Monitoring'],
+    category: t.skills.cloud,
+    skills: t.skills.cloudSkills,
   },
   {
-    category: 'Databases',
-    skills: ['PostgreSQL', 'PGVector', 'Firebase Realtime DB', 'CoreData', 'Oracle', 'DB2'],
+    category: t.skills.databases,
+    skills: t.skills.dbSkills,
   },
   {
-    category: 'Testing & Quality',
-    skills: ['Unit Testing', 'Integration Testing', 'Performance Optimization', 'Debugging', 'Edge-case Handling'],
+    category: t.skills.testing,
+    skills: t.skills.testingSkills,
   },
 ]
 
 export default function Skills() {
+  const { t } = useLanguage()
+  const skillCategories = buildSkillsData(t)
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -57,7 +60,7 @@ export default function Skills() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Technical Skills</span>
+            <span className="gradient-text">{t.skills.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
@@ -104,7 +107,7 @@ export default function Skills() {
           </div>
           <div className="card-blur p-6 rounded-xl text-center">
             <p className="text-3xl font-bold text-accent mb-2">15+</p>
-            <p className="text-gray-400">Technologies</p>
+            <p className="text-gray-400">{t.skills.count}</p>
           </div>
           <div className="card-blur p-6 rounded-xl text-center">
             <p className="text-3xl font-bold text-accent mb-2">50+</p>

@@ -9,9 +9,11 @@ import Languages from './components/Languages'
 import Experience from './components/Experience'
 import Contact from './components/Contact'
 import Navigation from './components/Navigation'
+import { LanguageProvider, useLanguage } from './context/LanguageContext'
 
-function App() {
+function AppContent() {
   const [activeSection, setActiveSection] = useState('home')
+  const { t } = useLanguage()
 
   return (
     <div className="bg-gradient-dark min-h-screen">
@@ -46,9 +48,17 @@ function App() {
         </div>
       </main>
       <footer className="border-t border-purple-500/10 py-8 px-4 sm:px-6 lg:px-8 text-center text-gray-400 text-sm">
-        <p>© 2026 Alexander Núñez. All rights reserved.</p>
+        <p>{t.footer.copyright}</p>
       </footer>
     </div>
+  )
+}
+
+function App() {
+  return (
+    <LanguageProvider>
+      <AppContent />
+    </LanguageProvider>
   )
 }
 

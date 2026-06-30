@@ -1,23 +1,38 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
-const languages = [
+const languagesData = [
   {
-    name: 'Spanish',
-    level: 'Native',
+    name_en: 'Spanish',
+    name_es: 'Español',
+    level_en: 'Native',
+    level_es: 'Nativo',
     code: 'C2',
     proficiency: 100,
-    description: 'Native speaker',
+    desc_en: 'Native speaker',
+    desc_es: 'Hablante nativo',
   },
   {
-    name: 'English',
-    level: 'Professional Working Proficiency',
+    name_en: 'English',
+    name_es: 'Inglés',
+    level_en: 'Professional Working Proficiency',
+    level_es: 'Competencia Profesional Trabajadora',
     code: 'B2',
     proficiency: 80,
-    description: 'Upper-intermediate level',
+    desc_en: 'Upper-intermediate level',
+    desc_es: 'Nivel intermedio alto',
   },
 ]
 
 export default function Languages() {
+  const { t, language } = useLanguage()
+  const languages = languagesData.map(lang => ({
+    name: language === 'en' ? lang.name_en : lang.name_es,
+    level: language === 'en' ? lang.level_en : lang.level_es,
+    code: lang.code,
+    proficiency: lang.proficiency,
+    description: language === 'en' ? lang.desc_en : lang.desc_es,
+  }))
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,7 +62,7 @@ export default function Languages() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Languages</span>
+            <span className="gradient-text">{t.languages.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
@@ -87,7 +102,7 @@ export default function Languages() {
                   className="bg-gradient-primary h-2 rounded-full"
                 />
               </div>
-              <p className="text-gray-400 text-sm mt-2">{lang.proficiency}% Proficiency</p>
+              <p className="text-gray-400 text-sm mt-2">{lang.proficiency}% {t.languages.proficiency}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -100,7 +115,7 @@ export default function Languages() {
           className="mt-12 card-blur p-8 rounded-xl text-center border border-accent/20"
         >
           <p className="text-gray-300">
-            Available for <span className="text-accent font-semibold">international remote work</span>. Comfortable communicating with global teams in English and conducting business in Spanish.
+            {t.languages.closing}
           </p>
         </motion.div>
       </div>

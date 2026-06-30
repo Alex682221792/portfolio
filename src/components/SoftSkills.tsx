@@ -1,25 +1,35 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
-const softSkillsCategories = [
+const softSkillsData = [
   {
-    category: 'Communication',
+    en: 'Communication',
+    es: 'Comunicación',
     skills: ['Clear communication', 'Technical communication', 'Stakeholder communication'],
   },
   {
-    category: 'Collaboration & Leadership',
+    en: 'Collaboration & Leadership',
+    es: 'Colaboración y Liderazgo',
     skills: ['Cross-functional collaboration', 'Mentorship', 'Ownership'],
   },
   {
-    category: 'Problem-Solving',
+    en: 'Problem-Solving',
+    es: 'Resolución de Problemas',
     skills: ['Problem-solving', 'Analytical thinking', 'Root cause analysis', 'Decision-making'],
   },
   {
-    category: 'Growth & Adaptability',
+    en: 'Growth & Adaptability',
+    es: 'Crecimiento y Adaptabilidad',
     skills: ['Continuous learning', 'Adaptability'],
   },
 ]
 
 export default function SoftSkills() {
+  const { t, language } = useLanguage()
+  const softSkillsCategories = softSkillsData.map(cat => ({
+    category: language === 'en' ? cat.en : cat.es,
+    skills: cat.skills
+  }))
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -49,7 +59,7 @@ export default function SoftSkills() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">Soft Skills</span>
+            <span className="gradient-text">{t.softSkills.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
@@ -88,8 +98,7 @@ export default function SoftSkills() {
           className="mt-12 card-blur p-8 rounded-xl text-center"
         >
           <p className="text-gray-300 text-lg leading-relaxed">
-            Experienced in collaborating with product, design, and engineering teams to deliver complex features end-to-end in Agile remote environments.
-            <span className="text-accent font-semibold"> Comfortable balancing architecture quality, delivery speed, and operational excellence.</span>
+            {t.softSkills.closing}
           </p>
         </motion.div>
       </div>

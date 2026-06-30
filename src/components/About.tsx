@@ -1,6 +1,9 @@
 import { motion } from 'framer-motion'
+import { useLanguage } from '../context/LanguageContext'
 
 export default function About() {
+  const { t } = useLanguage()
+
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-dark relative">
       <div className="max-w-6xl mx-auto">
@@ -11,7 +14,7 @@ export default function About() {
           viewport={{ once: true }}
         >
           <h2 className="text-4xl font-bold mb-4">
-            <span className="gradient-text">About Me</span>
+            <span className="gradient-text">{t.about.title}</span>
           </h2>
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
@@ -24,17 +27,18 @@ export default function About() {
             viewport={{ once: true }}
             className="space-y-6 text-gray-300 leading-relaxed"
           >
+            <p>{t.about.p1}</p>
+            <p>{t.about.p2}</p>
+            <p>{t.about.p3}</p>
             <p>
-              I'm a Senior Software Engineer from Ecuador with 9+ years of experience building scalable mobile and backend-integrated systems. My journey spans across fintech, transportation, and real-time platforms.
-            </p>
-            <p>
-              I specialize in creating offline-first experiences, real-time data synchronization, and cross-platform architectures. Whether it's Flutter, Swift, or Kotlin, I focus on system reliability, performance optimization, and secure data handling.
-            </p>
-            <p>
-              Beyond code, I'm passionate about architecture decisions, mentoring teams, and collaborating across product and design to deliver features that matter. I actively leverage AI tools to accelerate development while maintaining code quality and architectural integrity.
-            </p>
-            <p>
-              Currently, I'm building <span className="text-accent font-semibold">NuBrain</span> (AI-powered e-invoicing platform for Ecuador in production) and <span className="text-accent font-semibold">Muvin</span> (a transportation solution for Ecuador in progress).
+              {t.about.p4.split('NuBrain').map((part, i) => (
+                i === 0 ? part : (
+                  <span key={i}>
+                    <span className="text-accent font-semibold">NuBrain</span>
+                    {part}
+                  </span>
+                )
+              ))}
             </p>
           </motion.div>
 
@@ -46,49 +50,35 @@ export default function About() {
             className="space-y-6"
           >
             <div className="card-blur p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-white mb-4">Key Strengths</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">{t.about.strengths}</h3>
               <ul className="space-y-3 text-gray-300">
-                <li className="flex items-start gap-3">
-                  <span className="text-accent font-bold">→</span>
-                  <span>Cross-platform mobile development (iOS & Android)</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent font-bold">→</span>
-                  <span>Real-time data synchronization & Firebase expertise</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent font-bold">→</span>
-                  <span>Offline-first application architecture</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent font-bold">→</span>
-                  <span>Performance optimization & system reliability</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="text-accent font-bold">→</span>
-                  <span>End-to-end feature delivery & ownership</span>
-                </li>
+                {[t.about.s1, t.about.s2, t.about.s3, t.about.s4, t.about.s5].map((strength, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <span className="text-accent font-bold">→</span>
+                    <span>{strength}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div className="card-blur p-6 rounded-xl">
-              <h3 className="text-xl font-semibold text-white mb-4">By the Numbers</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">{t.about.byNumbers}</h3>
               <div className="grid grid-cols-2 gap-4 text-center mb-6">
                 <div>
                   <p className="text-2xl font-bold text-accent">9+</p>
-                  <p className="text-gray-400 text-sm">Years Experience</p>
+                  <p className="text-gray-400 text-sm">{t.about.yearsExp}</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">15+</p>
-                  <p className="text-gray-400 text-sm">Technologies</p>
+                  <p className="text-gray-400 text-sm">{t.about.technologies}</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">30%</p>
-                  <p className="text-gray-400 text-sm">Performance Improvement</p>
+                  <p className="text-gray-400 text-sm">{t.about.perfImprovement}</p>
                 </div>
                 <div>
                   <p className="text-2xl font-bold text-accent">85%</p>
-                  <p className="text-gray-400 text-sm">Automation Gains</p>
+                  <p className="text-gray-400 text-sm">{t.about.automationGains}</p>
                 </div>
               </div>
               <a
@@ -96,7 +86,7 @@ export default function About() {
                 download
                 className="block w-full text-center px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg font-semibold transition-colors"
               >
-                📄 Download CV
+                {t.about.downloadCv}
               </a>
             </div>
           </motion.div>
