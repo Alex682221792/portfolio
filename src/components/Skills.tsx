@@ -80,7 +80,7 @@ export default function Skills() {
             >
               <h3 className="text-lg font-bold text-white mb-4">{category.category}</h3>
               <div className="flex flex-wrap gap-2">
-                {category.skills.map((skill, i) => (
+                {category.skills.map((skill: string, i: number) => (
                   <motion.span
                     key={i}
                     whileHover={{ scale: 1.05 }}
