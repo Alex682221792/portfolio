@@ -65,6 +65,42 @@ export default function Skills() {
           <div className="w-20 h-1 bg-gradient-primary rounded-full mb-12"></div>
         </motion.div>
 
+        {/* Core Expertise Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="mb-16 card-blur p-8 rounded-xl"
+        >
+          <h3 className="text-2xl font-bold text-white mb-8">{t.skills.expertise}</h3>
+          <div className="space-y-6">
+            {t.skills.topTechs.map((tech, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-white font-semibold">{tech.name}</span>
+                  <span className="text-accent text-sm font-medium">{tech.level}%</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    whileInView={{ width: `${tech.level}%` }}
+                    transition={{ duration: 1.2, ease: 'easeOut', delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-gradient-primary h-2 rounded-full"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"

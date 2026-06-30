@@ -86,6 +86,7 @@ export const translations = {
     },
     skills: {
       title: 'Technical Skills',
+      expertise: 'Core Expertise',
       mobile: 'Mobile Development',
       architecture: 'Cross-Platform & Architecture',
       backend: 'Backend & APIs',
@@ -99,6 +100,15 @@ export const translations = {
       dbSkills: ['PostgreSQL', 'PGVector', 'Firebase Realtime DB', 'CoreData', 'Oracle', 'DB2'],
       testingSkills: ['Unit Testing', 'Integration Testing', 'Performance Optimization', 'Debugging', 'Edge-case Handling'],
       count: 'Technologies',
+      topTechs: [
+        { name: 'Swift', level: 95 },
+        { name: 'Kotlin', level: 94 },
+        { name: 'Flutter', level: 92 },
+        { name: 'Firebase', level: 90 },
+        { name: 'Node.js', level: 87 },
+        { name: 'TypeScript', level: 86 },
+        { name: 'Java', level: 82 },
+      ],
     },
     softSkills: {
       title: 'Soft Skills',
@@ -258,6 +268,7 @@ export const translations = {
     },
     skills: {
       title: 'Habilidades Técnicas',
+      expertise: 'Experiencia Central',
       mobile: 'Desarrollo Mobile',
       architecture: 'Arquitectura y Cross-Platform',
       backend: 'Backend y APIs',
@@ -271,6 +282,15 @@ export const translations = {
       dbSkills: ['PostgreSQL', 'PGVector', 'Firebase Realtime DB', 'CoreData', 'Oracle', 'DB2'],
       testingSkills: ['Unit Testing', 'Integration Testing', 'Performance Optimization', 'Debugging', 'Edge-case Handling'],
       count: 'Tecnologías',
+      topTechs: [
+        { name: 'Swift', level: 95 },
+        { name: 'Kotlin', level: 94 },
+        { name: 'Flutter', level: 92 },
+        { name: 'Firebase', level: 90 },
+        { name: 'Node.js', level: 87 },
+        { name: 'TypeScript', level: 86 },
+        { name: 'Java', level: 82 },
+      ],
     },
     softSkills: {
       title: 'Soft Skills',
